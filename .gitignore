@@ -1,0 +1,6 @@
+work/
+predictions/
+eval_out/
+OmniDocBench/
+docker/docker-cli/docker
+__pycache__/

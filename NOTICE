@@ -1,0 +1,8 @@
+Sangfor-OCR
+Copyright 2026 The Sangfor-OCR Authors
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The Sangfor-OCR model weights are a derivative work of MinerU2.5-Pro-2605-1.2B
+(https://huggingface.co/opendatalab/MinerU2.5-Pro-2605-1.2B), released by OpenDataLab
+under the Apache License, Version 2.0.

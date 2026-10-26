@@ -1,0 +1,55 @@
+{
+  "page_identity": {
+    "engine_files_scanned": 342,
+    "files_with_page_names": {
+      "engine/code/runtime/runs/native_full1651_gpu5_v2/pages.json": 1557
+    },
+    "only_input_manifest_has_page_names": true,
+    "files_with_benchmark_image_sha256": {},
+    "source_label_literals_in_code": {},
+    "generic_words_seen_in_code": [
+      "color",
+      "notes",
+      "page"
+    ],
+    "note": "The input manifest only enumerates the image files to process. No code or data file names a page, stores a benchmark image hash, or tests a source label."
+  },
+  "ground_truth": {
+    "engine_files_referencing_hidden_paths": [
+      "engine/code/experimenter/phase2_b_prime_v4.py",
+      "engine/code/experimenter/single_model_efficient_v1.py",
+      "engine/code/experimenter/single_model_selective_v1.py",
+      "engine/code/research/inline_cli_0034_v1.py",
+      "engine/code/research/run_native_rules_track_a_v1.py",
+      "engine/code/runtime/run_native.py",
+      "engine/code/runtime/score_frozen.py",
+      "engine/scripts/phase2_final_runtime_v1.py",
+      "engine/scripts/phase2_final_runtime_v2.py",
+      "engine/scripts/phase2_resolution_runtime_v2.py",
+      "engine/scripts/replay_phase2_dot_leader_v1.py",
+      "engine/scripts/replay_phase2_dot_leader_v2.py",
+      "engine/scripts/replay_phase2_math_delimiter_size_v1.py",
+      "engine/scripts/run_current_pipeline_v2.py",
+      "engine/scripts/run_phase2_fragment_locked_v1.py"
+    ],
+    "image_placeholder_sizes": {
+      "/opt/p2t10/hidden/OmniDocBench.json": 0,
+      "/opt/p2t10/hidden/source_validation_v1_references.jsonl": 0,
+      "/opt/p2t10/hidden/source_validation_v2_references.jsonl": 0
+    },
+    "all_placeholders_empty": true,
+    "note": "The engine image contains no annotations. The three annotation paths of the original recipe are empty placeholder files; the recipe references them only to assert that they are empty or to mask them."
+  },
+  "scoring_code": {
+    "present": {
+      "code/runtime/score_frozen.py": true,
+      "code/runtime/score_receipts.py": true,
+      "scripts/compare_frozen_scores.py": true
+    },
+    "run_checked": "p2t10_20261026_013608",
+    "steps_checked": 97,
+    "scoring_steps_executed": [],
+    "note": "These are research-period scoring utilities. The frozen B-lane runner verifies the SHA-256 of every file in its dependency list, so they must be present byte-identical; no inference step runs them. Scoring is done only by the official repository (eval/)."
+  },
+  "passed": true
+}

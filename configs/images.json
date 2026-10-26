@@ -1,0 +1,29 @@
+{
+  "model_service": {
+    "image": "vllm/vllm-openai:v0.8.5",
+    "manifest_digest": "sha256:6cf9808ca8810fc6c3fd0451c2e7784fb224590d81f7db338e7eaf3c02a33d33",
+    "image_id": "sha256:d1a544bfefdcd51fb42a9cc64d29df092127a7f1706f7a284aac26e5c48c468d",
+    "launch": "engine/code/runtime/mineru_server.sh (max_model_len 8192, max_num_seqs 45, max_num_batched_tokens 16384, bf16, gpu_memory_utilization 0.7)"
+  },
+  "engine": {
+    "image": "sangfor-ocr-engine:1.0",
+    "build": "docker build -f docker/Dockerfile.engine -t sangfor-ocr-engine:1.0 docker/",
+    "base": "ubuntu:24.04@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+    "python": "3.12.3 (Ubuntu 24.04)",
+    "texlive": "2023.20240207-1",
+    "packages": "docker/requirements-engine.txt"
+  },
+  "official_evaluation": {
+    "repository": "https://github.com/opendatalab/OmniDocBench",
+    "commit": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+    "image": "ghcr.io/zeng-weijun/omnidocbench-eval:repro-ubuntu2204",
+    "manifest_digest": "sha256:6116ad72172e763b5c43e963d5efebf2093f2362b975f58156ce4f6c9142e617",
+    "image_id": "sha256:0ae6679f3a7e66b1be001196e21c0fad027632cd1b685ccc8912dc4e0cc87e0b",
+    "dataset": "OmniDocBench v1.6 (1651 pages), OmniDocBench.json sha256 a45cd84b04ad8b793e775089640e6b681209abea33ead54c1828ddca35fae496"
+  },
+  "model": {
+    "name": "Sangfor-OCR (MinerU2.5-Pro-2605-1.2B fine-tuned; internal code name P2T10)",
+    "model.safetensors_sha256": "01dcb5addfa1d6133fd0930e79fa2484817cb0228af21cb4917fa73d04fa3147",
+    "modelscope": "zzxxhh0908/Sangfor-OCR (weights in weights/)"
+  }
+}

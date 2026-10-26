@@ -1,0 +1,53 @@
+{
+  "phase": "phase2_single_model_97p2",
+  "started_at": "2026-10-22T03:58:15.381851+00:00",
+  "deadline_at": "2026-10-23T03:58:15.381851+00:00",
+  "target": 97.5,
+  "gpu_ids": [
+    0,
+    1,
+    3
+  ],
+  "model": "/opt/p2t10/model",
+  "tracks": {
+    "A_native_rules": {
+      "inference": "unchanged native inference; no additional model calls",
+      "allowed": "general deterministic preprocessing/postprocessing",
+      "report": [
+        "overall",
+        "paired_native_gain",
+        "runtime",
+        "changed_pages",
+        "negative_cases"
+      ]
+    },
+    "B_selective_same_model": {
+      "inference": "same frozen MinerU only; selective additional crops/views",
+      "efficiency_required": true,
+      "forbidden": "blanket repeated inference without measured value",
+      "report": [
+        "overall",
+        "paired_native_gain",
+        "gain_vs_track_A",
+        "triggered_pages_fraction",
+        "extra_requests",
+        "extra_prompt_tokens",
+        "extra_completion_tokens",
+        "wall_seconds",
+        "GPU_seconds_if_measured",
+        "abstentions",
+        "negative_cases"
+      ]
+    }
+  },
+  "historical_final_summary": "reports/rsi_single_model_final_summary_v1.json",
+  "frozen_previous_results_unchanged": true,
+  "drain_by": "2026-10-23T02:36:15.381851+00:00",
+  "final_start_at": "2026-10-23T02:40:15.381851+00:00",
+  "research_tasks_may_adjust_with_evidence": true,
+  "additional_agents_allowed": false,
+  "latest_objective_updated_at": "2026-10-22T12:12:04.232370+00:00",
+  "final_validation_reserved_minutes": 78,
+  "drain_minutes": 4,
+  "schedule_revision": "D0427"
+}

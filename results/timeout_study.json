@@ -1,0 +1,106 @@
+{
+  "question": "Why does the official entry score about 0.04 lower than the accelerated scorer, and how to obtain a result unaffected by it?",
+  "predictions": "results/Sangfor-OCR_OmniDocBench_v1.6_predictions.zip (same 1651 files for every mode below)",
+  "modes": {
+    "official_default": {
+      "config": "official configs/end2end.yaml unchanged (quick_match_truncated_timeout_sec 300, match_timeout_sec 420)",
+      "overall": 97.1552285441893,
+      "metrics": {
+        "text_block_Edit_dist": 0.030267121081860176,
+        "display_formula_CDM": 98.62198495218865,
+        "table_TEDS": 95.87041278856529,
+        "table_TEDS_structure_only": 97.80498765245125,
+        "reading_order_Edit_dist": 0.11878051706856985
+      },
+      "fallback_pages": {
+        "quick_match_timeout": [
+          "docstructbench_enbook-zlib-o.O-17208435.pdf_105.jpg",
+          "docstructbench_enbook-zlib-o.O-17208435.pdf_57.jpg"
+        ],
+        "page_timeout": []
+      },
+      "text_edit_of_the_two_pages": {
+        "docstructbench_enbook-zlib-o.O-17208435.pdf_105.jpg": 1.0,
+        "docstructbench_enbook-zlib-o.O-17208435.pdf_57.jpg": 1.0
+      }
+    },
+    "official_relaxed_time_limits": {
+      "config": "same official code and config, only quick_match_truncated_timeout_sec and match_timeout_sec raised (this run: 7200; every page finished within 1732 s, so any limit >= 1732 s gives the same result)",
+      "overall": 97.19673641682418,
+      "metrics": {
+        "text_block_Edit_dist": 0.02902188490281428,
+        "display_formula_CDM": 98.62198495218865,
+        "table_TEDS": 95.87041278856529,
+        "table_TEDS_structure_only": 97.80498765245125,
+        "reading_order_Edit_dist": 0.11755951584756863
+      },
+      "fallback_pages": {
+        "quick_match_timeout": [],
+        "page_timeout": []
+      },
+      "text_edit_of_the_two_pages": {
+        "docstructbench_enbook-zlib-o.O-17208435.pdf_105.jpg": 0.032814778804083615,
+        "docstructbench_enbook-zlib-o.O-17208435.pdf_57.jpg": 0.028352490421455937
+      }
+    },
+    "accelerated_scorer": {
+      "config": "official code (193627ae, code-identical to f133a71) with a resident LaTeX converter, TEDS process pool and CDM render cache; not an official entry",
+      "overall": 97.19673641682418,
+      "metrics": {
+        "text_block_Edit_dist": 0.02902188490281428,
+        "display_formula_CDM": 98.62198495218865,
+        "table_TEDS": 95.87041278856529,
+        "table_TEDS_structure_only": 97.80498765245125,
+        "reading_order_Edit_dist": 0.11755951584756863
+      },
+      "text_edit_of_the_two_pages": {
+        "docstructbench_enbook-zlib-o.O-17208435.pdf_105.jpg": 0.032814778804083615,
+        "docstructbench_enbook-zlib-o.O-17208435.pdf_57.jpg": 0.028352490421455937
+      }
+    }
+  },
+  "per_page_text_comparison": {
+    "official_default_vs_relaxed_differing_pages": [
+      "docstructbench_enbook-zlib-o.O-17208435.pdf_105.jpg",
+      "docstructbench_enbook-zlib-o.O-17208435.pdf_57.jpg"
+    ],
+    "official_relaxed_vs_accelerated_differing_pages": [],
+    "text_pages": 1557
+  },
+  "timing_seconds": {
+    "official_full_run_default": {
+      "docstructbench_enbook-zlib-o.O-17208435.pdf_105.jpg": 303.15,
+      "docstructbench_enbook-zlib-o.O-17208435.pdf_57.jpg": 303.93
+    },
+    "official_full_run_relaxed": {
+      "docstructbench_enbook-zlib-o.O-17208435.pdf_105.jpg": 1436.97,
+      "docstructbench_enbook-zlib-o.O-17208435.pdf_57.jpg": 1731.15
+    },
+    "official_full_run_relaxed_slowest_other_page": 407.21,
+    "official_default": {
+      "docstructbench_enbook-zlib-o.O-17208435.pdf_57.jpg": 300.55,
+      "docstructbench_enbook-zlib-o.O-17208435.pdf_105.jpg": 300.6
+    },
+    "official_unlimited_run1": {
+      "docstructbench_enbook-zlib-o.O-17208435.pdf_105.jpg": 551.74,
+      "docstructbench_enbook-zlib-o.O-17208435.pdf_57.jpg": 594.63
+    },
+    "official_unlimited_run2": {
+      "docstructbench_enbook-zlib-o.O-17208435.pdf_105.jpg": 561.21,
+      "docstructbench_enbook-zlib-o.O-17208435.pdf_57.jpg": 601.15
+    },
+    "accelerated": {
+      "docstructbench_enbook-zlib-o.O-17208435.pdf_105.jpg": 71.54,
+      "docstructbench_enbook-zlib-o.O-17208435.pdf_57.jpg": 116.85
+    },
+    "limit": 300,
+    "note": "official_full_run_* are the full 1651-page scoring runs (13 match workers, 16 CPUs); the other entries score only the two pages, so they run about 3x faster than inside a full run",
+    "host": "2 x Intel Xeon Platinum 8460Y+ (Sapphire Rapids, 2.0 GHz base / 3.7 GHz turbo), shared, load 20-30"
+  },
+  "recommended_time_limit_sec": {
+    "quick_match_truncated_timeout_sec": 2400,
+    "match_timeout_sec": 2400,
+    "reason": "about 1.4x the slowest page (1731 s) in the full official run on this host; the result is identical to the 7200 s run because no page came close to either limit"
+  },
+  "cause": "For these two pages quick_match exceeds the 300 s limit; the official timeout fallback then scores each page's text edit distance as 1.0. The official LaTeX-to-text conversion starts a new process for every candidate, which dominates the time on these formula-dense pages."
+}

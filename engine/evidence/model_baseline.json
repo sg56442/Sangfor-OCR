@@ -1,0 +1,6 @@
+{
+  "model_id": "chec-0f7bde371686",
+  "name": "P2T10",
+  "checkpoint": "/opt/p2t10/model",
+  "model_weight_sha256": "01dcb5addfa1d6133fd0930e79fa2484817cb0228af21cb4917fa73d04fa3147"
+}

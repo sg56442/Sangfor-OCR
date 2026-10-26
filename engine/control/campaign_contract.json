@@ -1,0 +1,144 @@
+{
+  "schema": "planning_contract_v1_not_a_launcher_config",
+  "campaign_id": "campaign-ft-1021",
+  "status": "RUNNING_PHASE2",
+  "objective": "Frozen same MinerU plus general training-free A/B strategies; official full1651 overall >=97.5",
+  "baseline_evidence": "../evidence/model_baseline.json",
+  "model_id": "chec-0f7bde371686",
+  "weights_read_only": true,
+  "training_enabled": false,
+  "gpu_ids": [
+    0,
+    1,
+    3
+  ],
+  "duration_hours_at_future_start": 24,
+  "maximum_physical_gpu_hours": 72,
+  "clock_started_at": "2026-10-22T03:58:15.381851+00:00",
+  "agents": {
+    "rsi": "current session; sole decision owner",
+    "researcher": {
+      "launcher": "codexh",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "medium"
+    },
+    "experimenter": {
+      "launcher": "codexh",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "medium"
+    },
+    "maximum_llm_agents_including_rsi": 3,
+    "started_by_this_planning_task": true
+  },
+  "read_only_sources": [
+    "/data/zxh/pt4table",
+    "/data/zxh/ref_methods",
+    "/data/datasets/OmniDocBench",
+    "/data/zxh/rsi_fixed/experiments/campaign-ft-1020",
+    "/data/zxh/rsi_fixed/experiments/campaign-ft-1020n"
+  ],
+  "write_root": "/opt/p2t10/engine",
+  "runtime_forbidden_inputs": [
+    "ground_truth",
+    "benchmark_page_id_as_feature",
+    "benchmark_source_label",
+    "image_hash_answer_lookup",
+    "per_case_fix_table"
+  ],
+  "required_evidence_stages": [
+    "configured",
+    "triggered",
+    "applied",
+    "consumed",
+    "selected",
+    "scored"
+  ],
+  "resource_policy": {
+    "initial_gpu_heavy_jobs_per_gpu": 1,
+    "campaign_soft_limit_gib": 40,
+    "minimum_filesystem_free_gib": 100,
+    "reject_artifact_cooldown_hours": 24,
+    "ready_work_idle_alert_minutes": 5,
+    "final_validation_reserved_hours": 1.25,
+    "kill_scope": "exact owned PID plus start time or exact owned container identity; never broad pkill",
+    "cleanup_background": true,
+    "cleanup_scope": "Completed redundant artifacts in experiments; protect original outputs/evidence, active runs, and pt4table",
+    "final_drain_minutes": 5
+  },
+  "final_repeats": 3,
+  "stable_target_definition": "All three frozen complete full-set runs >=97.5; report all, mean/min/variance and paired native gain",
+  "rsi_may_adjust_strategy_and_prompts": true,
+  "adjustment_requires": [
+    "evidence_reference",
+    "hypothesis",
+    "scope",
+    "version",
+    "budget",
+    "rollback",
+    "confirmation_exposure_record"
+  ],
+  "deadline_at": "2026-10-23T03:58:15.381851+00:00",
+  "historical_cleanup_authorization": {
+    "by": "latest user message",
+    "owner": "rsi",
+    "scope": "redundant artifacts under rsi_fixed/experiments only; protect live outputs and audit evidence"
+  },
+  "model_inference_scope": {
+    "effective_at": "2026-10-22T01:37:38.991551+00:00",
+    "authority": "latest explicit user instruction",
+    "only_weights": "/opt/p2t10/model",
+    "allowed": [
+      "same frozen MinerU inference including additional crops/views",
+      "general deterministic image/text/format processing"
+    ],
+    "forbidden": [
+      "all other learned models including RapidOCR/PP-OCR, TeleOCR, OvisOCR",
+      "runtime use of cached auxiliary model observations"
+    ],
+    "historical_mixed_scores_eligible": false
+  },
+  "strategy_tracks": {
+    "A_native_rules": {
+      "inference": "unchanged native inference; no additional model calls",
+      "allowed": "general deterministic preprocessing/postprocessing",
+      "report": [
+        "overall",
+        "paired_native_gain",
+        "runtime",
+        "changed_pages",
+        "negative_cases"
+      ]
+    },
+    "B_selective_same_model": {
+      "inference": "same frozen MinerU only; selective additional crops/views",
+      "efficiency_required": true,
+      "forbidden": "blanket repeated inference without measured value",
+      "report": [
+        "overall",
+        "paired_native_gain",
+        "gain_vs_track_A",
+        "triggered_pages_fraction",
+        "extra_requests",
+        "extra_prompt_tokens",
+        "extra_completion_tokens",
+        "wall_seconds",
+        "GPU_seconds_if_measured",
+        "abstentions",
+        "negative_cases"
+      ]
+    }
+  },
+  "phase": "phase2_single_model_97p2",
+  "phase1_evidence": "control/phases/phase2_single_model_97p2/previous_campaign_contract.json",
+  "latest_red_lines_confirmed_at": "2026-10-22T04:02:01.619973+00:00",
+  "hard_red_lines": {
+    "document_inference_models": "Exactly same frozen MinerU ckpt-58; no other learned model or cached auxiliary observations",
+    "runtime_rules": "General image/native/geometry/content rules only; no benchmark page-name/ID/source-label/GT/answer lookup",
+    "GT_scope": "Offline diagnosis and scoring only",
+    "violation_action": "Immediately stop exact owned violating job, exclude result, preserve violation evidence",
+    "planning_agents": "Existing RSI plus2codexh sessions maintained; no extra agents"
+  },
+  "target": 97.5,
+  "latest_objective_updated_at": "2026-10-22T12:12:04.232370+00:00",
+  "schedule_revision": "D0427"
+}

@@ -1,0 +1,19 @@
+#!/bin/sh
+# Stand-in for the util-linux unshare calls in the frozen recipe
+# ("unshare --net [--mount --propagation private] CMD").
+# Network isolation is real: --net creates a new network namespace, so zero-call stages cannot reach
+# any service (requires CAP_SYS_ADMIN, which infer.py grants the engine container).
+# The private mount namespace is not created; see the "mount" stand-in for what it was used for.
+net=0
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --net|-n) net=1; shift ;;
+    --propagation) shift 2 ;;
+    --*) shift ;;
+    *) break ;;
+  esac
+done
+if [ "$net" = 1 ]; then
+  exec /usr/bin/unshare --net -- "$@"
+fi
+exec "$@"

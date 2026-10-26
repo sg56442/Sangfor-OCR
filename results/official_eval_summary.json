@@ -1,0 +1,31 @@
+{
+  "benchmark": "OmniDocBench v1.6_full (1651 pages)",
+  "evaluator": "github.com/opendatalab/OmniDocBench @ f133a71e9e91c3621c7ce8994200a7b394a06eb3, configs/end2end.yaml (quick_match), python pdf_validation.py, image ghcr.io/zeng-weijun/omnidocbench-eval:repro-ubuntu2204",
+  "overall_formula": "((1 - text Edit) * 100 + formula CDM + table TEDS) / 3",
+  "result": {
+    "overall": 97.1552285441893,
+    "text_edit": 0.030267121081860176,
+    "formula_cdm": 98.62198495218865,
+    "table_teds": 95.87041278856529,
+    "table_teds_structure": 97.80498765245125,
+    "reading_order_edit": 0.11878051706856985,
+    "quick_match_timeout_fallback_pages": {
+      "quick_match_timeout": [
+        "docstructbench_enbook-zlib-o.O-17208435.pdf_105.jpg",
+        "docstructbench_enbook-zlib-o.O-17208435.pdf_57.jpg"
+      ],
+      "page_timeout": []
+    }
+  },
+  "result_relaxed_time_limits": {
+    "overall": 97.19673641682418,
+    "metrics": {
+      "text_block_Edit_dist": 0.02902188490281428,
+      "display_formula_CDM": 98.62198495218865,
+      "table_TEDS": 95.87041278856529,
+      "table_TEDS_structure_only": 97.80498765245125,
+      "reading_order_Edit_dist": 0.11755951584756863
+    },
+    "note": "official code, quick_match_truncated_timeout_sec and match_timeout_sec raised; recommended 2400 s (scored run used 7200 s, slowest page 1731 s, identical result); see timeout_study.json"
+  }
+}

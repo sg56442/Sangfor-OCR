@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-23T02:40:40.041238+00:00",
+  "phase": "phase2_single_model_97p2",
+  "0": {
+    "owner": "experimenter",
+    "state": "AVAILABLE_FINITE_RESERVATIONS",
+    "task": "phase2_final_three_repeats",
+    "policy": "RSI final only; exact shared GPU locks; all research drained"
+  },
+  "1": {
+    "owner": "experimenter",
+    "state": "AVAILABLE_FINITE_RESERVATIONS",
+    "task": "phase2_final_three_repeats",
+    "policy": "RSI final only; exact shared GPU locks; all research drained"
+  },
+  "3": {
+    "owner": "experimenter",
+    "state": "AVAILABLE_FINITE_RESERVATIONS",
+    "task": "phase2_final_three_repeats",
+    "policy": "RSI final only; exact shared GPU locks; all research drained"
+  },
+  "handoff": "Idle lane may be borrowed by other role after shared exact finite batch reservation; no global service changes; latest RSI directives prevail",
+  "native_parallel_heavy_jobs_per_gpu": 1
+}

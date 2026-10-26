@@ -1,0 +1,18 @@
+#!/bin/sh
+# Stand-in for the two mount forms the frozen recipe uses inside its private mount namespaces:
+#   mount --bind /dev/null FILE                    hide a ground-truth file
+#   mount -t tmpfs -o size=4k,mode=000 none DIR    mask the outputs of other runs
+# The engine image ships the ground-truth paths as empty placeholders (/opt/p2t10/hidden), so
+# hiding them is a no-op; any non-empty target is refused. Each infer.py run starts from a fresh
+# engine copy, so no outputs of other runs exist to be masked.
+for target in "$@"; do :; done
+case " $* " in
+  *" --bind /dev/null "*)
+    if [ -f "$target" ] && [ ! -s "$target" ]; then exit 0; fi
+    echo "refusing to run: $target is not an empty placeholder" >&2
+    exit 1 ;;
+  *" -t tmpfs "*)
+    exit 0 ;;
+esac
+echo "unsupported mount invocation: $*" >&2
+exit 1

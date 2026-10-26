@@ -1,0 +1,61 @@
+{
+  "status": "READY",
+  "endpoint": "http://127.0.0.1:28521",
+  "gpu": 5,
+  "container": "ba66ad8d3389b6a71f0c75a16004cc8b327a08f492255799924fac5007df0390",
+  "model": "/opt/p2t10/model",
+  "worker": "/opt/p2t10/engine/code/runtime/native_worker.py",
+  "python": "/opt/p2t10/venv/bin/python",
+  "protocol": {
+    "concurrency": 45,
+    "page_batch": 32,
+    "context": 8192,
+    "batched_tokens": 16384,
+    "dtype": "bfloat16"
+  },
+  "gpu4": "researcher",
+  "gpu0_1": "experimenter",
+  "driver_workaround": "runc direct GPU5 device; historical cc1009 driver-compat read-only; same image",
+  "updated": 1792569208.6548254,
+  "researcher_endpoint": {
+    "url": "http://127.0.0.1:28421",
+    "gpu": 4,
+    "status": "READY",
+    "container": "ft1021-experimenter-gpu4-native-v1"
+  },
+  "native_invocation": "MinerUClient(backend=\"http-client\", model_name=model, server_url=endpoint, handle_equation_block=False, image_analysis=False, max_concurrency=45, max_connections=45, max_keepalive_connections=45); client._batch_predict(images, [client.prompts[\"table\"]]*len(images), [client.sampling_params[\"table\"]]*len(images), None, None)",
+  "audit_interface": "Set FT1021_AUDIT_DIR to owned output path; import code/runtime/http_audit.py before client creation. HTTP request images and response usage/finish_reason captured. Processor measurements pending.",
+  "scorer_interface": "python code/runtime/score_frozen.py --predictions ABS_MARKDOWN_DIR --out NEW_CAMPAIGN_OUTPUT_DIR",
+  "scorer_notes": "Official unchanged accelerated runner; explicit diagnostic GT subset generated only on scoring side; CPU-only. Cache writes campaign only.",
+  "native_smoke": "code/runtime/runs/native_smoke_v1/predictions/worker_receipt.json",
+  "additional_endpoints": {
+    "0": {
+      "state": "READY",
+      "role": "experimenter",
+      "work": "F/H",
+      "endpoint": "http://127.0.0.1:28021",
+      "container": "ft1021-experimenter-gpu0-native-v3"
+    },
+    "1": {
+      "state": "READY",
+      "role": "experimenter",
+      "work": "D/E/G",
+      "endpoint": "http://127.0.0.1:28121",
+      "container": "ft1021-experimenter-gpu1-native-v2"
+    }
+  },
+  "processor_interface": "docker exec -e CUDA_VISIBLE_DEVICES= ft1021-experimenter-gpu4-native-v1 python3 CAMPAIGN/code/runtime/measure_processor.py --audit ABS_AUDIT_DIR --model CAMPAIGN/code/runtime/model-view-28421 --output ABS_OUTPUT_JSON",
+  "processor_validation": "37 smoke and 653 discovery requests: replay prompt tokens match server usage for all",
+  "queues": {
+    "0": "code/runtime/queues/gpu0.json",
+    "1": "code/runtime/queues/gpu1.json",
+    "4": "code/runtime/queues/gpu4.json",
+    "5": "code/runtime/queues/gpu5_full_v2.json"
+  },
+  "completed_probes": "reports/experimenter_first_probe_results.json",
+  "active_native_full": "code/runtime/runs/native_full1651_gpu5_v2",
+  "durable_job_ownership": "code/runtime/queues/full_native_v2.ownership.json",
+  "updated_at": "2026-10-21T15:01:39.562175+00:00",
+  "lease_authority": "control/gpu_leases.json",
+  "GPU5_usage": "researcher; identical native service refreshed to v4 by RSI; use control/gpu_leases.json"
+}

@@ -1,0 +1,107 @@
+{
+  "at": "2026-10-22T01:41:29.667945+00:00",
+  "model": "/opt/p2t10/model",
+  "weights_sha256": "01dcb5addfa1d6133fd0930e79fa2484817cb0228af21cb4917fa73d04fa3147",
+  "pages_sha256": "dba30aafee85ff4160d3902a6c2263f213fe6f0470e5642ccfbef228ace42def",
+  "runs": {
+    "initial": {
+      "native": "code/runtime/runs/native_full1651_gpu5_v2",
+      "pages": 1651,
+      "receipt_sha256": "3498e95283f0a03b37b441fe8b03fb07e7090f593df12dbe5dc2bf028607842c",
+      "http_sha256": "567aac13bab1228cd84b1721a310aca456a8326d6b01d24edfb9cf928b782312",
+      "trace_sha256": "abb97c2be9b590e044aa1d1234bb30dbec1012f4075fa321a5993f11b767d0ac",
+      "request_count": 37348,
+      "token_counts": {
+        "prompt_tokens": 8964076,
+        "completion_tokens": 2612516
+      },
+      "finish_reasons": {
+        "stop": 37347,
+        "length": 1
+      },
+      "route_counts": {
+        "[layout]": 1651,
+        "title": 4466,
+        "text": 21768,
+        "header": 1789,
+        "ref_text": 339,
+        "table": 889,
+        "footer": 809,
+        "table_caption": 611,
+        "equation": 2548,
+        "page_number": 1232,
+        "image_caption": 669,
+        "page_footnote": 63,
+        "code": 30,
+        "code_caption": 3,
+        "table_footnote": 198,
+        "aside_text": 130,
+        "image_footnote": 147,
+        "phonetic": 6
+      },
+      "sampling_parameter_groups": [
+        {
+          "parameters": {
+            "frequency_penalty": 0.0,
+            "model": "/opt/p2t10/model",
+            "presence_penalty": 0.0,
+            "repetition_penalty": 1.0,
+            "skip_special_tokens": false,
+            "temperature": 0.0,
+            "top_k": 1,
+            "top_p": 0.01,
+            "vllm_xargs": {
+              "debug": false,
+              "no_repeat_ngram_size": 100
+            }
+          },
+          "requests": 1651
+        },
+        {
+          "parameters": {
+            "frequency_penalty": 0.05,
+            "model": "/opt/p2t10/model",
+            "presence_penalty": 1.0,
+            "repetition_penalty": 1.0,
+            "skip_special_tokens": false,
+            "temperature": 0.0,
+            "top_k": 1,
+            "top_p": 0.01,
+            "vllm_xargs": {
+              "debug": false,
+              "no_repeat_ngram_size": 100
+            }
+          },
+          "requests": 34808
+        },
+        {
+          "parameters": {
+            "frequency_penalty": 0.005,
+            "model": "/opt/p2t10/model",
+            "presence_penalty": 1.0,
+            "repetition_penalty": 1.0,
+            "skip_special_tokens": false,
+            "temperature": 0.0,
+            "top_k": 1,
+            "top_p": 0.01,
+            "vllm_xargs": {
+              "debug": false,
+              "no_repeat_ngram_size": 100
+            }
+          },
+          "requests": 889
+        }
+      ],
+      "native_elapsed_seconds": 2325.573795080185,
+      "pure_native_observations_verified": true,
+      "limits": "Current outputs, trace and HTTP responses verified; this does not retrospectively invent an execution-time source freeze."
+    }
+  },
+  "current_worker_source_hashes": {
+    "code/runtime/native_worker.py": "5b70e309eb1d9093c9f605967185502102e8b44d305f7e1344516a5d16bcabce",
+    "code/runtime/audited_worker.py": "94887b971795a39eec4dfccbc6000a121a01d967acd337a1ed5913fe87628ef0",
+    "code/runtime/run_native.py": "04c36cb323667f28bc4406cd0f9155b54b129610ca662ece2a45a0301b029a85",
+    "code/runtime/http_audit.py": "5f5ee2c678f86e483854dddec2fd502822788ef501a8bea2f90c4632ad2e1b96"
+  },
+  "auxiliary_model_outputs_consumed": false
+}

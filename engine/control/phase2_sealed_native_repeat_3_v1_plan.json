@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-22T23:16:43.049985+00:00",
+  "approved_by": "RSI",
+  "independent_native_repeat": 3,
+  "gpu": "3",
+  "output": "runs/phase2_sealed_final_repeat_3_v1",
+  "producer_freeze": "control/freezes/phase2_AB_shared_row_final_v20.json",
+  "producer_freeze_sha256": "eb85eeeb9e8eab4b041d11d64052b2a643528562d7662bb45e9f417eed828140",
+  "entry_hashes": {
+    "/opt/p2t10/engine/scripts/phase2_sealed_native_v1.py": "a284197741dde3e2020b284b4de785dc9e2b0f11370f1c06ab6763b6f471eac7",
+    "/opt/p2t10/engine/scripts/phase2_final_runtime_v1.py": "9f1c8de89814a52cfd86fca238beaca743741c5cece99a4daabed5d6b40dff67",
+    "/opt/p2t10/engine/code/runtime/run_native.py": "04c36cb323667f28bc4406cd0f9155b54b129610ca662ece2a45a0301b029a85",
+    "/opt/p2t10/engine/code/experimenter/phase2_runtime_guard_v1.py": "766f8f7b2e59fc7431ccca8d45364f7686abd186556be43f60bba914da28325d",
+    "/opt/p2t10/engine/code/experimenter/single_model_native_runtime_v1.py": "b15b788276afd2b792e94c531aa4f30a6a0cfff1620fabca7252736afb369d51"
+  },
+  "deadline_at": "2026-10-23T03:58:15.381851+00:00",
+  "research_access_forbidden": true,
+  "model": "/opt/p2t10/model",
+  "weight_sha256": "01dcb5addfa1d6133fd0930e79fa2484817cb0228af21cb4917fa73d04fa3147",
+  "pages": "code/runtime/runs/native_full1651_gpu5_v2/pages.json",
+  "pages_sha256": "dba30aafee85ff4160d3902a6c2263f213fe6f0470e5642ccfbef228ace42def",
+  "inference_protocol": {
+    "context": 8192,
+    "sequences": 45,
+    "batched_tokens": 16384,
+    "client_concurrency": 45,
+    "page_batch": 32,
+    "dtype": "bfloat16",
+    "memory_utilization": 0.7,
+    "equation": false,
+    "image_analysis": false
+  },
+  "service": {
+    "endpoint": "http://127.0.0.1:28321",
+    "container": "ft1021-experimenter-phase2-gpu3-native-v1",
+    "container_id": "9730521ba7de2e2a1ae6dae1f13b4445484efb0daf6806731eb050a8d6128b1b"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-22T06:26:11.308019+00:00",
+  "phase": "phase2_single_model_97p2",
+  "status": "OWNED_READY_SERVICES_0_1_3",
+  "gpu_ids": [
+    0,
+    1,
+    3
+  ],
+  "service_lifecycle_owner": "RSI",
+  "leases": "control/gpu_leases.json",
+  "queue": "control/phase2_queue.json",
+  "model_scope": "Same frozen MinerU ckpt-58 only; no auxiliary models or cached auxiliary observations",
+  "policy": "Use existing services only. No role may start/stop/restart model services. GPU4/5 released; foreign processes untouched. Finite source-driven jobs, exact owned PIDs.",
+  "deadline_at": "2026-10-23T03:58:15.381851+00:00",
+  "drain_by": "2026-10-23T01:56:15.381851+00:00",
+  "supersedes": "2026-10-21T08:17 stale instructions to restore services and useGPU4/5",
+  "target": 97.5,
+  "final_start_at": "2026-10-23T02:01:15.381851+00:00",
+  "schedule_revision": "D0341"
+}

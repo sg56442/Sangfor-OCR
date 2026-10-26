@@ -1,0 +1,67 @@
+{
+  "at": "2026-10-22T04:18:35.537106+00:00",
+  "service_lifecycle_owner": "RSI",
+  "0": {
+    "endpoint": "http://127.0.0.1:28021",
+    "container": "ft1021-experimenter-phase2-gpu0-native-v1",
+    "container_id": "1e9c8ec1a8b9470b1feda4e168e93266924f2e1efc515e62ae9482a5005d6a48",
+    "state": "READY",
+    "role": "RSI",
+    "work": "Exclusive until full native ends; follow-up official score CPU only",
+    "model_scope": "same frozen ckpt-58 only; no auxiliary models",
+    "available_for_inference": true,
+    "service_running": true,
+    "phase": "phase2_single_model_97p2",
+    "ready_at": "2026-10-22T04:01:26.851430+00:00"
+  },
+  "1": {
+    "endpoint": "http://127.0.0.1:28121",
+    "container": "ft1021-experimenter-phase2-gpu1-native-v1",
+    "container_id": "74551156b60d02b10fc7f2440f050693acd2b084d9f878d6ec94f007bf0deae2",
+    "state": "READY",
+    "role": "RSI",
+    "work": "table_geometry; coordinate control/phase2_queue.json",
+    "model_scope": "same frozen ckpt-58 only; no auxiliary models",
+    "available_for_inference": true,
+    "service_running": true,
+    "phase": "phase2_single_model_97p2",
+    "ready_at": "2026-10-22T04:01:26.851430+00:00"
+  },
+  "4": {
+    "endpoint": "http://127.0.0.1:28421",
+    "container": "ft1021-experimenter-gpu4-native-v1",
+    "state": "STOPPED_AFTER_COMPLETE_FINAL_REPEAT",
+    "role": "RSI",
+    "work": "Owned model service released after validated native/A/B repeat",
+    "model_scope": "same frozen ckpt-58 only; no auxiliary models",
+    "service_running": false,
+    "available_for_inference": false,
+    "physical_resource_state": "RELEASED"
+  },
+  "5": {
+    "endpoint": "http://127.0.0.1:28521",
+    "container": "ft1021-experimenter-gpu5-native-v4",
+    "state": "STOPPED_AFTER_COMPLETE_FINAL_REPEAT",
+    "role": "RSI",
+    "work": "Inference and all official scoring complete; service released at user request",
+    "model_scope": "same frozen ckpt-58 only; no auxiliary models",
+    "service_running": false,
+    "available_for_inference": false,
+    "physical_resource_state": "RELEASED",
+    "released_at": "2026-10-22T03:45:37.571983+00:00"
+  },
+  "auxiliary_services_disabled": true,
+  "3": {
+    "endpoint": "http://127.0.0.1:28321",
+    "container": "ft1021-experimenter-phase2-gpu3-native-v1",
+    "container_id": "9730521ba7de2e2a1ae6dae1f13b4445484efb0daf6806731eb050a8d6128b1b",
+    "state": "READY",
+    "role": "RSI",
+    "work": "coverage_ownership_or_equation_diagnostics; coordinate control/phase2_queue.json",
+    "model_scope": "same frozen ckpt-58 only; no auxiliary models",
+    "available_for_inference": true,
+    "service_running": true,
+    "phase": "phase2_single_model_97p2",
+    "ready_at": "2026-10-22T04:01:26.851430+00:00"
+  }
+}

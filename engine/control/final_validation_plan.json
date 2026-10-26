@@ -1,0 +1,42 @@
+{
+  "enabled": true,
+  "phase": "phase2_single_model_97p2",
+  "owner": "RSI",
+  "target": 97.5,
+  "start_at": "2026-10-23T02:40:15.381851+00:00",
+  "drain_by": "2026-10-23T02:36:15.381851+00:00",
+  "deadline_at": "2026-10-23T03:58:15.381851+00:00",
+  "gpus": [
+    0,
+    1,
+    3
+  ],
+  "required_repeats": 3,
+  "runtime_freeze": "control/freezes/phase2_AB_empty_bridge_final_v26.json",
+  "runtime_freeze_sha256": "7fabd741c4c297f394a2d5f91c9d6f5836f5dc2a8057709d26971bd4735ae976",
+  "accepted_strategy_freeze": "control/freezes/phase2_AB_empty_bridge_final_v26.json",
+  "repeats": [
+    {
+      "plan": "control/phase2_AB_empty_bridge_final_v26_repeat_1_plan.json",
+      "plan_sha256": "e7d24698c966cd6105a359cb0eba49625d47e962dddba2b03766976b5542804b",
+      "spec": "control/phase2_AB_empty_bridge_final_v26_repeat_1_spec.json",
+      "spec_sha256": "9998dd252c2998996e1ed3a0b180808a489c41f042cc7cf80ec48f274ba17901"
+    },
+    {
+      "plan": "control/phase2_AB_empty_bridge_final_v26_repeat_2_plan.json",
+      "plan_sha256": "36887305d8e454478119242c59eedaf8db5e71633105106163bc8dd1fe300920",
+      "spec": "control/phase2_AB_empty_bridge_final_v26_repeat_2_spec.json",
+      "spec_sha256": "81b3f6d7f1e876efd597ee446cd1e230839002ec36640b79a66984d9f46fbca1"
+    },
+    {
+      "plan": "control/phase2_AB_empty_bridge_final_v26_repeat_3_plan.json",
+      "plan_sha256": "01561a34016e486065bb90e9c0a5d15bcd97d4dda36ac0456ff5c876c0213e75",
+      "spec": "control/phase2_AB_empty_bridge_final_v26_repeat_3_spec.json",
+      "spec_sha256": "241358bef61719160bae35276711511a64b585942f72692d6859b31fa4811a42"
+    }
+  ],
+  "scheduler": "scripts/schedule_phase2_final_v4.py",
+  "policy": "Three independently predeclared native inputs completed before strategy freeze, all sealed and retained; A/B tail and official scoring continue once after research drain.",
+  "activated_at": "2026-10-23T02:34:56.526017+00:00",
+  "preflight_sha256": "681f038282570c81883097e215e594b853297cb0757f8623a66d6624592394a9"
+}

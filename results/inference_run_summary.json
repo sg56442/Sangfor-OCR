@@ -1,0 +1,312 @@
+{
+  "run_id": "p2t10_20261026_013608",
+  "wall_seconds": 4532.771791219711,
+  "model": "/opt/p2t10/model",
+  "weight_sha256": "01dcb5addfa1d6133fd0930e79fa2484817cb0228af21cb4917fa73d04fa3147",
+  "pages": 1651,
+  "native_requests": 37331,
+  "extra_requests": 1053,
+  "extra_tokens": {
+    "prompt_tokens": 363182,
+    "completion_tokens": 114912
+  },
+  "table_cell_style": {
+    "changed_pages": 32,
+    "stats": {
+      "tables_changed_md": 36,
+      "raw_table_blocks_changed": 36
+    },
+    "output_tree_sha256": "e10305303183a9ae2899227086cb550188e11a596d7c1ac9c3574471fcb3b3cf"
+  },
+  "stages": [
+    {
+      "name": "native",
+      "wall_seconds": 2229.8212418640032
+    },
+    {
+      "name": "A_base",
+      "wall_seconds": 87.89799772575498
+    },
+    {
+      "name": "A_math",
+      "wall_seconds": 2.132388117723167
+    },
+    {
+      "name": "A_dot",
+      "wall_seconds": 5.839203321374953
+    },
+    {
+      "name": "A_sizing",
+      "wall_seconds": 1.642889766022563
+    },
+    {
+      "name": "A_labels",
+      "wall_seconds": 1.6259739128872752
+    },
+    {
+      "name": "A_short_leaders",
+      "wall_seconds": 6.920486005954444
+    },
+    {
+      "name": "A_atoms",
+      "wall_seconds": 11.03251007758081
+    },
+    {
+      "name": "A_quantity",
+      "wall_seconds": 1.5102242166176438
+    },
+    {
+      "name": "A_render_groups",
+      "wall_seconds": 23.182325202040374
+    },
+    {
+      "name": "A_parallel_lists",
+      "wall_seconds": 12.947917583398521
+    },
+    {
+      "name": "A_inline_display",
+      "wall_seconds": 4.419752883724868
+    },
+    {
+      "name": "A_table_math_footer",
+      "wall_seconds": 2.282579865306616
+    },
+    {
+      "name": "A_nested_mode",
+      "wall_seconds": 3.11201217956841
+    },
+    {
+      "name": "A_repeated_text",
+      "wall_seconds": 1.607083247974515
+    },
+    {
+      "name": "A_header_group",
+      "wall_seconds": 1.63028409704566
+    },
+    {
+      "name": "A_mixed_prose",
+      "wall_seconds": 0.8086135936900973
+    },
+    {
+      "name": "A_array_label",
+      "wall_seconds": 1.192126540467143
+    },
+    {
+      "name": "A_list_order",
+      "wall_seconds": 1.3981756763532758
+    },
+    {
+      "name": "A_closed_record",
+      "wall_seconds": 2.7290291683748364
+    },
+    {
+      "name": "A_repeated_lines",
+      "wall_seconds": 1.1057876609265804
+    },
+    {
+      "name": "A_semantic_tails",
+      "wall_seconds": 1.4373031351715326
+    },
+    {
+      "name": "A_centered_record",
+      "wall_seconds": 8.738410928286612
+    },
+    {
+      "name": "A_column_bridge",
+      "wall_seconds": 3.836236884817481
+    },
+    {
+      "name": "B_core_tail",
+      "wall_seconds": 643.9194330545142
+    },
+    {
+      "name": "B_math",
+      "wall_seconds": 2.2141276337206364
+    },
+    {
+      "name": "B_grid",
+      "wall_seconds": 222.645782597363
+    },
+    {
+      "name": "B_dot",
+      "wall_seconds": 7.067669991403818
+    },
+    {
+      "name": "B_fragment",
+      "wall_seconds": 13.407339625991881
+    },
+    {
+      "name": "B_sizing",
+      "wall_seconds": 1.6215865593403578
+    },
+    {
+      "name": "B_resolution",
+      "wall_seconds": 152.39098918810487
+    },
+    {
+      "name": "B_resolution_math",
+      "wall_seconds": 2.134223584085703
+    },
+    {
+      "name": "B_resolution_dot",
+      "wall_seconds": 6.324291644617915
+    },
+    {
+      "name": "B_resolution_sizing",
+      "wall_seconds": 1.622097303159535
+    },
+    {
+      "name": "B_retention",
+      "wall_seconds": 3.249474562704563
+    },
+    {
+      "name": "B_labels",
+      "wall_seconds": 1.5321095287799835
+    },
+    {
+      "name": "B_short_leaders",
+      "wall_seconds": 6.5539483884349465
+    },
+    {
+      "name": "B_panel",
+      "wall_seconds": 175.76023286487907
+    },
+    {
+      "name": "B_atoms",
+      "wall_seconds": 9.979872721247375
+    },
+    {
+      "name": "B_quantity",
+      "wall_seconds": 1.4595953188836575
+    },
+    {
+      "name": "B_mixed",
+      "wall_seconds": 8.53538602590561
+    },
+    {
+      "name": "B_mixed_compose",
+      "wall_seconds": 3.4208209216594696
+    },
+    {
+      "name": "B_render_groups",
+      "wall_seconds": 21.2098236894235
+    },
+    {
+      "name": "B_parallel_lists",
+      "wall_seconds": 10.953197953291237
+    },
+    {
+      "name": "B_inline_display",
+      "wall_seconds": 4.0660458747297525
+    },
+    {
+      "name": "B_sparse",
+      "wall_seconds": 91.63085379824042
+    },
+    {
+      "name": "B_sparse_compose",
+      "wall_seconds": 6.580662187188864
+    },
+    {
+      "name": "B_table_math_footer",
+      "wall_seconds": 3.0340057779103518
+    },
+    {
+      "name": "B_numeric_prepare",
+      "wall_seconds": 17.330800304189324
+    },
+    {
+      "name": "B_numeric",
+      "wall_seconds": 86.17040984611958
+    },
+    {
+      "name": "B_nested_mode",
+      "wall_seconds": 2.1140747955068946
+    },
+    {
+      "name": "B_repeated_text",
+      "wall_seconds": 1.6188521152362227
+    },
+    {
+      "name": "B_header_group",
+      "wall_seconds": 1.588050507940352
+    },
+    {
+      "name": "B_mixed_prose",
+      "wall_seconds": 1.1127586038783193
+    },
+    {
+      "name": "B_array_label",
+      "wall_seconds": 1.1702191922813654
+    },
+    {
+      "name": "B_brace",
+      "wall_seconds": 75.984289300628
+    },
+    {
+      "name": "B_shared_row_prepare",
+      "wall_seconds": 35.373029422946274
+    },
+    {
+      "name": "B_shared_row_observe",
+      "wall_seconds": 5.480667165480554
+    },
+    {
+      "name": "B_shared_row_compose",
+      "wall_seconds": 1.4801343055441976
+    },
+    {
+      "name": "B_column_prepare",
+      "wall_seconds": 10.391234684735537
+    },
+    {
+      "name": "B_column_observe",
+      "wall_seconds": 20.28462641593069
+    },
+    {
+      "name": "B_column_compose",
+      "wall_seconds": 3.2243768936023116
+    },
+    {
+      "name": "B_list_order",
+      "wall_seconds": 1.4059889847412705
+    },
+    {
+      "name": "B_closed_record",
+      "wall_seconds": 2.7458108169957995
+    },
+    {
+      "name": "B_repeated_lines",
+      "wall_seconds": 0.7966984352096915
+    },
+    {
+      "name": "B_prose_recovery",
+      "wall_seconds": 214.7443477716297
+    },
+    {
+      "name": "B_semantic_tails",
+      "wall_seconds": 1.427693784236908
+    },
+    {
+      "name": "B_centered_record",
+      "wall_seconds": 8.559967232868075
+    },
+    {
+      "name": "B_skew_context",
+      "wall_seconds": 17.965293844230473
+    },
+    {
+      "name": "B_empty_cell",
+      "wall_seconds": 42.369498170912266
+    },
+    {
+      "name": "B_column_bridge",
+      "wall_seconds": 3.824210355989635
+    },
+    {
+      "name": "B_table_cell_style",
+      "wall_seconds": 0.8195494003593922
+    }
+  ],
+  "pipeline_state": "engine/runs/p2t10_20261026_013608/pipeline.json"
+}

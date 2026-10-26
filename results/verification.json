@@ -1,0 +1,19 @@
+{
+  "reproducibility": {
+    "description": "Two independent full inference runs of this repository (separate model inference), scored with the same official f133a71 entry and default time limits.",
+    "run_1": {
+      "overall": 97.1552285441893,
+      "note": "the run behind results/official_eval and the submitted predictions"
+    },
+    "run_2": {
+      "overall": 97.15431803463717,
+      "metrics": {
+        "text_block_Edit_dist": 0.029958174599515597,
+        "display_formula_CDM": 98.62327209334003,
+        "table_TEDS": 95.83549947052302,
+        "table_TEDS_structure_only": 97.76224119190319,
+        "reading_order_Edit_dist": 0.11866075934414529
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+# Sangfor-OCR processing engine (CPU only). The model itself is served by vLLM 0.8.5.
+FROM ubuntu:24.04
+ARG APT_MIRROR=""
+ARG PIP_INDEX_URL="https://pypi.org/simple"
+ARG PIP_TRUSTED_HOST=""
+ARG TORCH_INDEX_URL="https://download.pytorch.org/whl/cpu"
+ENV DEBIAN_FRONTEND=noninteractive PYTHONDONTWRITEBYTECODE=1 PIP_NO_CACHE_DIR=1 PIP_RETRIES=10 PIP_DEFAULT_TIMEOUT=120 \
+    PIP_INDEX_URL=${PIP_INDEX_URL} PIP_TRUSTED_HOST=${PIP_TRUSTED_HOST}
+RUN if [ -n "$APT_MIRROR" ]; then sed -i "s#http://archive.ubuntu.com/ubuntu/#${APT_MIRROR}#g; s#http://security.ubuntu.com/ubuntu/#${APT_MIRROR}#g" /etc/apt/sources.list.d/ubuntu.sources; fi \
+ && apt-get -o Acquire::Retries=10 update && apt-get -o Acquire::Retries=10 install -y --no-install-recommends \
+      python3 python3-venv ca-certificates \
+      libfribidi0=1.0.13-3build1 fonts-dejavu-core=2.37-8 \
+      texlive-base=2023.20240207-1 texlive-binaries=2023.20230311.66589-9build3 \
+      texlive-latex-base=2023.20240207-1 texlive-latex-recommended=2023.20240207-1 \
+      texlive-fonts-recommended=2023.20240207-1 \
+ && rm -rf /var/lib/apt/lists/*
+RUN python3 -m venv /opt/p2t10/venv
+COPY requirements-engine.txt /tmp/requirements-engine.txt
+RUN /opt/p2t10/venv/bin/pip install --upgrade pip \
+ && (/opt/p2t10/venv/bin/pip install torch==2.11.0 --index-url "$TORCH_INDEX_URL" \
+     || /opt/p2t10/venv/bin/pip install torch==2.11.0) \
+ && /opt/p2t10/venv/bin/pip install --no-deps mineru-vl-utils==1.2.1 \
+ && grep -v "^mineru-vl-utils" /tmp/requirements-engine.txt | /opt/p2t10/venv/bin/pip install -r /dev/stdin
+# Docker CLI only (client binary, v29.1.3): the frozen recipe runs its processor-token checks inside the
+# model service container (docker exec). The daemon socket is
+# mounted at run time. A prebuilt client may be placed in docker-cli/docker; otherwise it is downloaded.
+ARG DOCKER_CLI_URL="https://download.docker.com/linux/static/stable/x86_64/docker-29.1.3.tgz"
+COPY docker-cli/ /tmp/docker-cli/
+RUN if [ -x /tmp/docker-cli/docker ]; then install -m 755 /tmp/docker-cli/docker /usr/local/bin/docker; \
+    else python3 -c "import io,sys,tarfile,urllib.request; tarfile.open(fileobj=io.BytesIO(urllib.request.urlopen(sys.argv[1]).read())).extract('docker/docker','/tmp')" "$DOCKER_CLI_URL" \
+         && install -m 755 /tmp/docker/docker /usr/local/bin/docker; fi \
+ && rm -rf /tmp/docker-cli /tmp/docker && docker --version
+COPY unshare mount /opt/p2t10/shim/
+RUN chmod 755 /opt/p2t10/shim/unshare /opt/p2t10/shim/mount \
+ && mkdir -p /opt/p2t10/hidden \
+ && touch /opt/p2t10/hidden/OmniDocBench.json /opt/p2t10/hidden/source_validation_v1_references.jsonl \
+          /opt/p2t10/hidden/source_validation_v2_references.jsonl \
+ && chmod 444 /opt/p2t10/hidden/*
+ENV PATH=/opt/p2t10/shim:/opt/p2t10/venv/bin:$PATH
+WORKDIR /opt/p2t10/engine
